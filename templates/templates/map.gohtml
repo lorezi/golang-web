@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Peeps</title>
+</head>
+<body>
+    <ul>
+        {{/* {{range $index, $element := .}}
+        <li>{{$index}} - {{$element}}</li>
+        {{end}} */}}
+
+        {{/* For map data structures */}}
+        {{/* {{range $key, $value :=  .}}
+        <li>{{$key}} - {{$value}}</li>
+        {{end}} */}}
+
+        {{/* For struct data structure */}}
+        {{/* {{$x := .Name}}
+        {{$y := .Motto}}
+        <li>{{$x}} - {{$y}}</li> */}}
+
+        {{/* slice of structs */}}
+        {{/* {{range $_, $value := .}}
+        <li>{{$value.Name}} - {{$value.Motto}}</li>
+        {{end}} */}}
+
+        {{/* struct-slice of struct-struct */}}
+
+       
+
+    </ul>
+
+    <ul>
+    {{$wisdom := .Wisdom}}
+        {{range $_, $value := $wisdom}}
+        <li>{{$value.Name}} - {{$value.Motto}}</li>
+        {{end}}
+    
+    </ul>
+
+    <ul>
+    {{$transports := .Transport}}
+        {{range $_, $value := $transports}}
+        <li>{{$value.Name}} - {{$value.Model}}</li>
+        {{end}}
+    </ul>
+   
+</body>
+</html>
