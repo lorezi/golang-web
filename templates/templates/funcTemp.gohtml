@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passing Func</title>
+</head>
+<body>
+   
+    
+    {{$wisdom := .Wisdom}}
+    {{range $wisdom}}
+    {{ft .Name}}
+    {{end}}
+
+    {{/* {{range .Wisdom}}
+    {{ft .Name}}
+    {{end}}
+     */}}
+   
+</body>
+</html>
