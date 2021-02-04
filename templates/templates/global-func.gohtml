@@ -6,10 +6,36 @@
     <title>Passing Func</title>
 </head>
 <body>
-    {{index .Words 2}}
+    {{/* {{index .Words 2}}
     {{index .Words 1}}
     {{index .Words 0}}
 
-    {{.Fname}}
+    {{.Fname}} */}}
+
+    {{/* AND global function */}}
+    EXAMPLE #1
+    {{range .}}
+        {{.}}
+    {{end}}
+
+    EXAMPLE #2
+    {{if .}}
+        EXAMPLE #2 - {{.}}
+    {{end}}
+
+    EXAMPLE #3
+    {{range .}}
+        {{if .Name}}
+            EXAMPLE #3 - {{.Name}}
+        {{end}}
+    {{end}}
+
+    EXAMPLE #4
+    {{range .}}
+        {{if and .Name .Admin}}
+            EXAMPLE #4 - Name: {{.Name}}
+            EXAMPLE #4 - Admin: {{.Admin}}
+        {{end}}
+    {{end}}
 </body>
 </html>
