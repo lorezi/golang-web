@@ -16,3 +16,6 @@ func main() {
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
 }
+
+// visit the page
+// https://localhost:8080/?q=dog
