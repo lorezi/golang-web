@@ -13,5 +13,6 @@ func dog(w http.ResponseWriter, req *http.Request) {
 func main() {
 	http.Handle("/", http.FileServer(http.Dir(".")))
 	http.HandleFunc("/dog", dog)
+	http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
 }
