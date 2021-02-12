@@ -5,13 +5,14 @@ import (
 	"net/http"
 
 	"github.com/google/uuid"
+	"golang.org/x/crypto/bcrypt"
 )
 
 type user struct {
-	Username  string
-	Passoword string
-	First     string
-	Last      string
+	UserName string
+	Password []byte
+	First    string
+	Last     string
 }
 
 var tpl *template.Template
@@ -56,7 +57,13 @@ func signup(w http.ResponseWriter, req *http.Request) {
 	if req.Method == http.MethodPost {
 		// get form values
 		un := req.FormValue("username")
-		p := req.FormValue("password")
+		// convert string to byte of slice
+		bs := []byte(req.FormValue("password"))
+		p, err := bcrypt.GenerateFromPassword(bs, 12)
+		if err != nil {
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+		}
+
 		f := req.FormValue("firstname")
 		l := req.FormValue("lastname")
 
